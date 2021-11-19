@@ -28,12 +28,16 @@ func getRankFromElo(elo int) Rank {
 
 	for i := 0; i < len(ranks); i++ {
 		tmpRank := ranks[i]
-		if tmpRank.Min > 0 && elo > tmpRank.Min {
-			if tmpRank.Max > 0 && elo < tmpRank.Max {
-				rank = tmpRank
-				break
-			}
+		if tmpRank.Min > 0 && elo < tmpRank.Min {
+			continue
 		}
+
+		if tmpRank.Max > 0 && elo > tmpRank.Max {
+			continue
+		}
+
+		rank = tmpRank
+		break
 	}
 
 	return rank
