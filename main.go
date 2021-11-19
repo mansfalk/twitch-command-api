@@ -67,7 +67,7 @@ func handleRequests() {
 	router := gin.Default()
 	router.GET("/rank/:name", getRank)
 
-	router.Run(":8081")
+	router.Run()
 }
 
 func main() {
